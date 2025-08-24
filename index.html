@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Important Question</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            /* Set fl2.png as the full screen background */
+            background: url('ultres.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+        .question {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 60px;
+            color: black; /* Changed to black */
+            text-shadow: 2px 2px 10px #fff;
+        }
+        .btn {
+            padding: 25px 70px;
+            font-size: 2em;
+            margin: 30px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .yes {
+            background: linear-gradient(90deg, #ff69b4, #ffb6c1);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .yes:hover {
+            background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+            transform: scale(1.05);
+        }
+        .no {
+            background: linear-gradient(90deg, #8e24aa, #e040fb);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: fixed;
+            z-index: 10;
+        }
+        .no:hover {
+            background: linear-gradient(90deg, #e040fb, #8e24aa);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">Do You Love Me ADEE ??</div>
+        <button class="btn yes" onclick="window.location.href='result.html'">yeaa</button>
+    </div>
+    <button class="btn no" id="noBtn" style="top:60%;left:60%;">NO</button>
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        function moveNoBtn() {
+            const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+            const maxLeft = vw - btnWidth - 10;
+            const maxTop = vh - btnHeight - 10;
+            const newLeft = Math.random() * maxLeft;
+            const newTop = Math.random() * maxTop;
+            noBtn.style.left = `${newLeft}px`;
+            noBtn.style.top = `${newTop}px`;
+        }
+        moveNoBtn();
+        noBtn.addEventListener('mouseenter', moveNoBtn);
+        noBtn.addEventListener('click', moveNoBtn);
+        </script>
+</body>
+</html>
